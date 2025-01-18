@@ -2,7 +2,10 @@
 ### Prerequisites: 
 
 - Familiarity with Docker and basic Linux commands.
-- Tools: Minikube/Kind, kubectl, Helm, Prometheus, Grafana, ArgoCD.
+- Familiarity with Git/GitHub
+- Visual Studio Code
+- Comfortable with Command line interface ( Windows/Linux/Mac )
+- Tools: Minikube/Kind, kubectl, Helm
 
   
 **Learning Outcomes:**
@@ -20,7 +23,7 @@
   - The Kubernetes architecture: API server, etcd, kubelet, controller manager, scheduler
   - Overview of declarative vs. imperative configurations
 - **Hands-On Lab:**  
-  - Set up a Kubernetes cluster using Minikube or Kind (local dev environment).
+  - Set up kubectl with Cloud based Lab cluster 
 
 ---
 
