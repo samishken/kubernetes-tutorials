@@ -1,3 +1,16 @@
+
+### Prerequisites: 
+
+- Familiarity with Docker and basic Linux commands.
+- Tools: Minikube/Kind, kubectl, Helm, Prometheus, Grafana, ArgoCD.
+
+  
+**Learning Outcomes:**
+- Understand Kubernetes architecture and key concepts.
+- Deploy and manage containerized applications.
+- Use advanced features like Ingress, Persistent Volumes, and StatefulSets.
+- Implement basic security and monitoring practices.
+
 ## **Kubernetes Foundations**
 
 ### **Session 1: Introduction to Kubernetes**
