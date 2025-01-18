@@ -14,6 +14,8 @@
 - Use advanced features like Ingress, Persistent Volumes, and StatefulSets.
 - Implement basic security and monitoring practices.
 
+---
+
 ## **Kubernetes Foundations**
 
 ### **Session 1: Introduction to Kubernetes**
@@ -62,13 +64,13 @@
 
 ---
 
-### ** Foundation Wrap-Up**
+### **Foundation Wrap-Up**
 - Q&A and recap of foundational concepts.
 - Assign homework: Create a Deployment and expose it using a LoadBalancer service.
 
 ---
 
-## ** Advanced Kubernetes Concepts**
+## **Advanced Kubernetes Concepts**
 
 ### **Session 1: Managing Workloads**
 - **Topics Covered:**
@@ -120,15 +122,4 @@
 - Discussion on Kubernetes best practices and real-world use cases.
 - Resources for further learning (certifications, documentation, etc.)
 - Q&A session.
-
----
-
-## **Additional Notes**
-- **Prerequisites:** Familiarity with Docker and basic Linux commands.
-- **Tools:** Minikube/Kind, kubectl, Helm, Prometheus, Grafana, ArgoCD.
-- **Learning Outcomes:**  
-  - Understand Kubernetes architecture and key concepts.
-  - Deploy and manage containerized applications.
-  - Use advanced features like Ingress, Persistent Volumes, and StatefulSets.
-  - Implement basic security and monitoring practices.
 
