@@ -1,158 +1,192 @@
+### **Lab: Hands-On with Kubernetes Pods**
 
-## **Lab: Working with Pods, ReplicaSets, and Services**
+This lab is designed to help students experiment with Kubernetes Pods, understand their behavior, and learn how to manage them.
+
+---
+
+### **Objective**
+By the end of this lab, students will:
+1. Create and manage Kubernetes Pods.
+2. Understand Pod specifications.
+3. Experiment with multi-container Pods.
+4. Observe and debug Pod behavior using Kubernetes commands.
+
+---
 
 ### **Prerequisites**
-1. A Kubernetes cluster set up using Minikube, Kind, or any other method.
-2. `kubectl` installed and configured to connect to the cluster.
-3. Basic knowledge of YAML syntax.
+1. A Kubernetes cluster (e.g., Minikube, Kind, or a cloud-based cluster).
+2. `kubectl` command-line tool installed and configured.
+3. Basic YAML knowledge.
 
 ---
 
-### **Step 1: Create and Manage a Pod using YAML**
-1. **Objective:** Deploy a simple Pod running an NGINX web server.
-   
-2. **YAML Manifest:** Create a file named `nginx-pod.yaml` with the following content:
-   ```yaml
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: nginx-pod
-     labels:
-       app: nginx
-   spec:
-     containers:
-     - name: nginx
-       image: nginx:latest
-       ports:
-       - containerPort: 80
-   ```
+### **Step 1: Create a Simple Pod**
 
-3. **Commands:**
-   - Apply the manifest to create the Pod:
-     ```bash
-     kubectl apply -f nginx-pod.yaml
-     ```
-   - Verify the Pod is running:
-     ```bash
-     kubectl get pods
-     ```
-   - Describe the Pod to inspect its details:
-     ```bash
-     kubectl describe pod nginx-pod
-     ```
-   - Access the Pod's logs:
-     ```bash
-     kubectl logs nginx-pod
-     ```
+#### 1. Write a Pod YAML Manifest
+Create a file named `simple-pod.yaml`:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+```
 
-4. **Cleanup:** Delete the Pod (optional):
-   ```bash
-   kubectl delete pod nginx-pod
-   ```
+#### 2. Apply the Manifest
+```bash
+kubectl apply -f simple-pod.yaml
+```
+
+#### 3. Verify the Pod
+```bash
+kubectl get pods
+```
+
+#### 4. Check Logs
+```bash
+kubectl logs my-first-pod
+```
+
+#### 5. Access the Pod
+```bash
+kubectl port-forward my-first-pod 8080:80
+```
+Visit `http://localhost:8080` in your browser.
 
 ---
 
-### **Step 2: Scale the Application using ReplicaSets**
-1. **Objective:** Use a ReplicaSet to ensure multiple replicas of the NGINX Pod.
+### **Step 2: Create a Multi-Container Pod**
 
-2. **YAML Manifest:** Create a file named `nginx-replicaset.yaml` with the following content:
-   ```yaml
-   apiVersion: apps/v1
-   kind: ReplicaSet
-   metadata:
-     name: nginx-replicaset
-   spec:
-     replicas: 3
-     selector:
-       matchLabels:
-         app: nginx
-     template:
-       metadata:
-         labels:
-           app: nginx
-       spec:
-         containers:
-         - name: nginx
-           image: nginx:latest
-           ports:
-           - containerPort: 80
-   ```
+#### 1. Write a Multi-Container Pod YAML
+Create a file named `multi-container-pod.yaml`:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multi-container-pod
+  labels:
+    app: demo
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+  - name: sidecar
+    image: busybox:latest
+    command: ["sh", "-c", "while true; do echo Hello from Sidecar; sleep 5; done"]
+```
 
-3. **Commands:**
-   - Apply the manifest to create the ReplicaSet:
-     ```bash
-     kubectl apply -f nginx-replicaset.yaml
-     ```
-   - Verify the ReplicaSet and Pods are running:
-     ```bash
-     kubectl get replicasets
-     kubectl get pods
-     ```
-   - Scale the ReplicaSet to 5 replicas:
-     ```bash
-     kubectl scale replicaset nginx-replicaset --replicas=5
-     ```
-   - Verify the updated replica count:
-     ```bash
-     kubectl get replicasets
-     kubectl get pods
-     ```
+#### 2. Apply the Manifest
+```bash
+kubectl apply -f multi-container-pod.yaml
+```
 
-4. **Cleanup:** Delete the ReplicaSet (optional):
-   ```bash
-   kubectl delete replicaset nginx-replicaset
-   ```
+#### 3. Observe Logs from Both Containers
+```bash
+kubectl logs multi-container-pod -c nginx
+kubectl logs multi-container-pod -c sidecar
+```
 
 ---
 
-### **Step 3: Expose the Application with a Service**
-1. **Objective:** Expose the NGINX Pods to make them accessible externally.
+### **Step 3: Explore Pod Networking**
 
-2. **YAML Manifest:** Create a file named `nginx-service.yaml` with the following content:
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: nginx-service
-   spec:
-     selector:
-       app: nginx
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 80
-     type: NodePort
-   ```
+#### 1. Create a Networking Pod
+Write a manifest `networking-pod.yaml`:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: network-pod
+  labels:
+    app: demo
+spec:
+  containers:
+  - name: busybox
+    image: busybox:latest
+    command: ["sh", "-c", "sleep 3600"]
+```
 
-3. **Commands:**
-   - Apply the manifest to create the Service:
-     ```bash
-     kubectl apply -f nginx-service.yaml
-     ```
-   - Verify the Service is created and note the NodePort:
-     ```bash
-     kubectl get services
-     ```
-   - Access the application using the service:
-     - Obtain the Minikube cluster IP or node IP:
-       ```bash
-       minikube ip
-       ```
-     - Access the application in a browser or curl:
-       ```bash
-       curl http://<MINIKUBE_IP>:<NODE_PORT>
-       ```
+#### 2. Apply the Manifest
+```bash
+kubectl apply -f networking-pod.yaml
+```
 
-4. **Cleanup:** Delete the Service (optional):
-   ```bash
-   kubectl delete service nginx-service
-   ```
+#### 3. Exec into the Pod
+```bash
+kubectl exec -it network-pod -- sh
+```
+
+#### 4. Test DNS Resolution
+Inside the Pod:
+```bash
+nslookup kubernetes.default
+```
+
+#### 5. Exit the Pod
+```bash
+exit
+```
 
 ---
 
-### **Lab Completion**
-After completing these steps, you will have:
-- Created a Pod running NGINX.
-- Scaled the application using a ReplicaSet.
-- Exposed the application with a Service for external access.
+### **Step 4: Debug Pod Issues**
+
+#### 1. Create a Failing Pod
+Write a manifest `failing-pod.yaml`:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: failing-pod
+spec:
+  containers:
+  - name: failing-container
+    image: busybox:latest
+    command: ["sh", "-c", "exit 1"]
+```
+
+#### 2. Apply the Manifest
+```bash
+kubectl apply -f failing-pod.yaml
+```
+
+#### 3. Check the Pod Status
+```bash
+kubectl get pods
+```
+
+#### 4. Describe the Pod
+```bash
+kubectl describe pod failing-pod
+```
+
+#### 5. Delete the Pod
+```bash
+kubectl delete pod failing-pod
+```
+
+---
+
+### **Step 5: Clean Up**
+Delete all resources created during the lab:
+```bash
+kubectl delete pod my-first-pod multi-container-pod network-pod
+```
+
+---
+
+### **What Students Will Learn**
+1. How to create and manage Pods using YAML manifests.
+2. How to inspect and debug Pods.
+3. How Pods handle networking and multiple containers.
+4. How to troubleshoot common Pod issues.
 
