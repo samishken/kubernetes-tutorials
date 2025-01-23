@@ -50,6 +50,20 @@ spec:
     image: nginx:latest
     ports:
     - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-first-service
+spec:
+  selector:
+    app: demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+
 ```
 
 #### 2. Apply the Manifest
@@ -75,9 +89,12 @@ kubectl logs my-first-pod
 
 #### 5. Access the Pod
 ```bash
-kubectl port-forward my-first-pod 8080:80
+# kubectl get svc
+NAME               TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)        AGE
+kubernetes         ClusterIP      10.109.0.1    <none>           443/TCP        143m
+my-first-service   LoadBalancer   10.109.2.95   <External IP>   80:30507/TCP   3m11s
 ```
-Visit `http://localhost:8080` in your browser.
+Visit `http://<External IP>` in your browser.
 
 ---
 
