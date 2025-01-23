@@ -61,6 +61,12 @@ kubectl apply -f simple-pod.yaml
 ```bash
 kubectl get pods
 ```
+Output
+```
+kubectl get pods
+NAME        READY   STATUS    RESTARTS   AGE
+nginx-pod   1/1     Running   0          22s
+```
 
 #### 4. Check Logs
 ```bash
