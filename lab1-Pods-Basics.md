@@ -20,6 +20,19 @@ By the end of this lab, students will:
 
 ---
 
+### Setup kubectl command
+
+```
+export KUBECONFIG=<PATH TO KUBECONFIG FILE>
+```
+Ensure it is working
+
+```
+kubectl get nodes
+NAME                   STATUS   ROLES    AGE    VERSION
+pool-4jt93kjok-e1i0q   Ready    <none>   125m   v1.31.1
+```
+
 ### **Step 1: Create a Simple Pod**
 
 #### 1. Write a Pod YAML Manifest
