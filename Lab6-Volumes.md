@@ -114,6 +114,7 @@ Apply the Pod:
 kubectl apply -f configmap-pod.yaml
 ```
 
+- Assignment Validate if the ConfigMap file has been correctly mounted by validating the file contentn
 ---
 
 ### **Module 4: Using `secret` for Sensitive Data**
