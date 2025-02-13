@@ -7,7 +7,6 @@ This hands-on lab will introduce students to Kubernetes storage concepts using a
 
 ## **Prerequisites**
 -  Installed and configured **kubectl**.
--  DigitalOcean CLI (`doctl`)** installed and configured.
 -  basic understanding of Kubernetes concepts.
 
 ---
