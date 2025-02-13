@@ -124,7 +124,7 @@ Get the node’s public IP:
 kubectl get nodes -o wide
 ```
 
-Access the app via:
+Access the app via: ( This may not work in Public Cloud cluster as additional firewall/security group rules need to be added )
 
 ```
 http://<NODE_IP>:30007
