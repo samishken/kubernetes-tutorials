@@ -38,7 +38,7 @@ kubectl apply -f emptydir-pod.yaml
 ```
 Check the volume:
 ```sh
-kubectl exec -it emptydir-demo-pod -- ls /tmp/data
+kubectl exec -it emptydir-demo-pod -- ls /tmp/
 ```
 
 ---
