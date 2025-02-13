@@ -180,6 +180,13 @@ This allows pods to be accessed directly using the load balance IP address
 
 ---
 
+### Clean up
+
+```
+kubectl.exe delete statefulset web
+kubectl.exe delete svc web-service
+```
+
 ### **Post-Lab Questions:**
 
 1. **What makes StatefulSets suitable for stateful applications?**
