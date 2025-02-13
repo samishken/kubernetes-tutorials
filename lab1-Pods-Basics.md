@@ -191,7 +191,7 @@ kubectl exec -it network-pod -- sh
 #### 4. Test DNS Resolution
 Inside the Pod:
 ```bash
-nslookup kubernetes.default
+nslookup quick-labs.io
 ```
 
 #### 5. Exit the Pod
