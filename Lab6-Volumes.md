@@ -6,10 +6,9 @@ This hands-on lab will introduce students to Kubernetes storage concepts using a
 ---
 
 ## **Prerequisites**
-1. Access to a **DigitalOcean Kubernetes (DOKS) cluster**.
-2. Installed and configured **kubectl**.
-3. **DigitalOcean CLI (`doctl`)** installed and configured.
-4. A basic understanding of Kubernetes concepts.
+-  Installed and configured **kubectl**.
+-  DigitalOcean CLI (`doctl`)** installed and configured.
+-  basic understanding of Kubernetes concepts.
 
 ---
 
