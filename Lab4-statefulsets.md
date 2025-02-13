@@ -79,20 +79,19 @@ Learn how to create, scale, and manage **StatefulSets** in Kubernetes, and under
 
 1. **Create a headless service YAML file** (`web-service.yaml`) with the following content:
 
-   ```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-service
-spec:
-  selector:
-    app: web
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
-
+   ```
+   apiVersion: v1
+   kind: Service
+   metadata:
+     name: web-service
+   spec:
+     selector:
+       app: web
+     ports:
+       - protocol: TCP
+         port: 80
+         targetPort: 80
+     type: LoadBalancer
    ```
 
 2. **Deploy the headless service:**
