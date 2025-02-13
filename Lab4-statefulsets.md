@@ -77,25 +77,27 @@ Learn how to create, scale, and manage **StatefulSets** in Kubernetes, and under
 
 **Goal:** Learn how to expose StatefulSet pods using a headless service, which allows direct communication with individual pods.
 
-1. **Create a headless service YAML file** (`headless-service.yaml`) with the following content:
+1. **Create a headless service YAML file** (`web-service.yaml`) with the following content:
 
    ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: web
-   spec:
-     clusterIP: None  # Headless service
-     selector:
-       app: web
-     ports:
-       - port: 80
-         targetPort: 80
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-service
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
    ```
 
 2. **Deploy the headless service:**
    ```bash
-   kubectl apply -f headless-service.yaml
+   kubectl apply -f web-service.yaml
    ```
 
 3. **Verify the service:**
@@ -103,7 +105,7 @@ Learn how to create, scale, and manage **StatefulSets** in Kubernetes, and under
    kubectl get svc
    ```
 
-   The service will have `clusterIP: None`, indicating it is headless. This allows pods to be accessed directly using their stable DNS names like `web-0.web`, `web-1.web`, etc.
+This allows pods to be accessed directly using their stable DNS names like `web-0.web`, `web-1.web`, etc.
 
 ---
 
