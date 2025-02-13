@@ -104,7 +104,7 @@ Learn how to create, scale, and manage **StatefulSets** in Kubernetes, and under
    kubectl get svc
    ```
 
-This allows pods to be accessed directly using their stable DNS names like `web-0.web`, `web-1.web`, etc.
+This allows pods to be accessed directly using the load balance IP address
 
 ---
 
