@@ -71,6 +71,13 @@ spec:
 kubectl apply -f simple-pod.yaml
 ```
 
+Output running from Windows Terminal
+```
+kubectl.exe apply -f .\simple-pod.yaml
+pod/my-first-pod created
+service/my-first-service created
+```
+
 #### 3. Verify the Pod
 ```bash
 kubectl get pods
