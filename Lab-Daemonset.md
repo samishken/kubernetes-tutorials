@@ -141,6 +141,4 @@ kubectl delete -f nginx-daemonset.yaml
 - **LoadBalancers** distribute traffic across all running instances.  
 - Useful for **log collectors, monitoring agents, or node-wide applications**.
 
----
 
-💬 **Questions? Drop a comment below!** 🚀
