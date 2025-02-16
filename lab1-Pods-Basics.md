@@ -65,6 +65,88 @@ spec:
   type: LoadBalancer
 
 ```
+This YAML file defines two Kubernetes resources:
+
+1. **Pod** (`my-first-pod`):
+2. **Service** (`my-first-service`):
+
+---
+
+### **1. Pod Definition**
+The first part of the YAML defines a **Pod**, which is the smallest deployable unit in Kubernetes.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-first-pod
+  labels:
+    app: demo
+```
+- **`apiVersion: v1`** – Specifies the API version used.
+- **`kind: Pod`** – Defines this resource as a Kubernetes Pod.
+- **`metadata`**:
+  - **`name: my-first-pod`** – Assigns a name to the Pod.
+  - **`labels`**:
+    - **`app: demo`** – Labels help with organizing and selecting resources.
+
+```yaml
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+```
+- **`spec`** – Describes the desired behavior of the Pod.
+- **`containers`** – Defines the list of containers within the Pod.
+  - **`name: nginx`** – Container is named `nginx`.
+  - **`image: nginx:latest`** – Uses the latest Nginx container image from Docker Hub.
+  - **`ports`**:
+    - **`containerPort: 80`** – Exposes port 80 inside the container.
+
+---
+
+### **2. Service Definition**
+The second part of the YAML defines a **Service**, which provides networking and load balancing.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-first-service
+```
+- **`apiVersion: v1`** – Specifies the API version used.
+- **`kind: Service`** – Defines this resource as a Service.
+- **`metadata`**:
+  - **`name: my-first-service`** – Assigns a name to the Service.
+
+```yaml
+spec:
+  selector:
+    app: demo
+```
+- **`spec`** – Describes the desired behavior of the Service.
+- **`selector`**:
+  - **`app: demo`** – Matches any Pod with the label `app: demo`, which in this case selects `my-first-pod`.
+
+```yaml
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+```
+- **`ports`**:
+  - **`protocol: TCP`** – Uses TCP for communication.
+  - **`port: 80`** – Exposes port 80 on the Service.
+  - **`targetPort: 80`** – Forwards traffic to port 80 inside the matching Pods.
+
+```yaml
+  type: LoadBalancer
+```
+- **`type: LoadBalancer`** – Exposes the Service externally with a cloud provider-managed load balancer.
+
+---
 
 #### 2. Apply the Manifest
 ```bash
