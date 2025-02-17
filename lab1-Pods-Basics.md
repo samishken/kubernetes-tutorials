@@ -72,7 +72,7 @@ This YAML file defines two Kubernetes resources:
 
 ---
 
-### **1. Pod Definition**
+### **Explaination - Pod Definition**
 The first part of the YAML defines a **Pod**, which is the smallest deployable unit in Kubernetes.
 
 ```yaml
@@ -107,7 +107,7 @@ spec:
 
 ---
 
-### **2. Service Definition**
+### **Explaination - Service Definition**
 The second part of the YAML defines a **Service**, which provides networking and load balancing.
 
 ```yaml
