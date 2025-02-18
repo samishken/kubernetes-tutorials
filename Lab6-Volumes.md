@@ -163,7 +163,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: do-block-storage-class
+  storageClassName: do-block-storage 
 ```
 Apply the PVC:
 ```sh
