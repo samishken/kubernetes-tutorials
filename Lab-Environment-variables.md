@@ -61,7 +61,7 @@ In this lab, you will learn how to:
    **requirements.txt:**
 
    ```
-   Flask==2.0.1
+   Flask
    ```
 
 #### **Part 2: Dockerize the Flask Application**
