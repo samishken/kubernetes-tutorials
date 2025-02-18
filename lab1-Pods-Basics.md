@@ -25,6 +25,12 @@ By the end of this lab, students will:
 ```
 export KUBECONFIG=<PATH TO KUBECONFIG FILE>
 ```
+
+In Powershell
+
+```
+$env:KUBECONFIG="<Path to your folder>\quick-labs-0-kubeconfig.yaml"
+```
 Ensure it is working
 
 ```
