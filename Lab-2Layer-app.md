@@ -76,7 +76,7 @@ In this lab, you will:
    **requirements.txt:**
 
    ```
-   Flask==2.0.1
+   Flask
    ```
 
 4. **Dockerize the Backend Flask Application**:
@@ -158,8 +158,8 @@ In this lab, you will:
    **requirements.txt:**
 
    ```
-   Flask==2.0.1
-   requests==2.26.0
+   Flask
+   requests
    ```
 
 4. **Dockerize the Frontend Flask Application**:
