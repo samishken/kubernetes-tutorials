@@ -22,6 +22,14 @@ By the end of this lab, students will:
 
 ### Setup kubectl command
 
+Download Latest Kubeconfig
+
+URL = https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+Setup your environment variable
+
+Linux/MacOS
+
 ```
 export KUBECONFIG=<PATH TO KUBECONFIG FILE>
 ```
@@ -31,12 +39,15 @@ In Powershell
 ```
 $env:KUBECONFIG="<Path to your folder>\quick-labs-0-kubeconfig.yaml"
 ```
+
 Ensure it is working
 
 ```
-kubectl get nodes
-NAME                   STATUS   ROLES    AGE    VERSION
-pool-4jt93kjok-e1i0q   Ready    <none>   125m   v1.31.1
+ kubectl.exe get no
+NAME                 STATUS   ROLES    AGE   VERSION
+quick-labs-0-aa0mx   Ready    <none>   21m   v1.32.1
+quick-labs-0-aaalz   Ready    <none>   11h   v1.32.1
+quick-labs-0-aaapc   Ready    <none>   11h   v1.32.1
 ```
 
 ### **Step 1: Create a Simple Pod**
