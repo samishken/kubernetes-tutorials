@@ -190,6 +190,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
      - name: busybox
        image: busybox
        command: ["sleep", "3600"]
+
    ```
 
    
