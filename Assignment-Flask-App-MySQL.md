@@ -122,7 +122,7 @@ FLUSH PRIVILEGES;
                       |   +-------------+    |
                       +----------------------+
 ```
-![My Diagram](k8s training - Python-MySQL.png)
+![Architecture Diagram](Python-MySQL-Project.png)
 
 
 ---
