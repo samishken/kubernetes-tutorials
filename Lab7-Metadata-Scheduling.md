@@ -154,13 +154,8 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    apiVersion: v1
    kind: Pod
    metadata:
-     name: toleration-pod
+     name: no-toleration-pod
    spec:
-     tolerations:
-     - key: "key"
-       operator: "Equal"
-       value: "database"
-       effect: "NoSchedule"
      containers:
      - name: busybox
        image: busybox
@@ -180,16 +175,16 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
 
    Create a file `pod-with-toleration.yaml`:
 
-   ```yaml
+      ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
      name: toleration-pod
    spec:
      tolerations:
-     - key: "database"
+     - key: "key"
        operator: "Equal"
-       value: "true"
+       value: "database"
        effect: "NoSchedule"
      containers:
      - name: busybox
@@ -197,25 +192,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
        command: ["sleep", "3600"]
    ```
 
-   **Note:** The toleration value here is set to `"true"`; adjust this as needed to match your taint. For our case, update the toleration to match the taint exactly:
    
-   ```yaml
-   tolerations:
-   - key: "database"
-     operator: "Equal"
-     value: "database"   # if your taint uses key=database and value=database (or adjust accordingly)
-     effect: "NoSchedule"
-   ```
-   
-   Alternatively, remove the value constraint if you want any toleration:
-
-   ```yaml
-   tolerations:
-   - key: "database"
-     operator: "Exists"
-     effect: "NoSchedule"
-   ```
-
    Apply the pod:
 
    ```bash
@@ -230,7 +207,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    Once testing is complete, remove the taint:
 
    ```bash
-   kubectl taint nodes quick-labs-0-aaalz key=database:NoSchedule-
+   kubectl taint nodes quick-labs-0-aa0mx quick-labs-0-aaalz quick-labs-0-aaapc key=database:NoSchedule-
    ```
 
 ### **Expected Outcome:**
