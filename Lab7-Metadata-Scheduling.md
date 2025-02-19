@@ -228,7 +228,7 @@ Use node affinity and pod affinity/anti-affinity rules to control the placement 
    Create a YAML file `node-affinity.yaml` that schedules pods only on nodes with a specific label. First, label one of your nodes:
 
    ```bash
-   kubectl label nodes quick-labs-0-aaapc region=us-east
+   kubectl label nodes quick-labs-0-aaapc location=toronto
    ```
 
    Now, create a pod that uses node affinity:
@@ -244,10 +244,10 @@ Use node affinity and pod affinity/anti-affinity rules to control the placement 
          requiredDuringSchedulingIgnoredDuringExecution:
            nodeSelectorTerms:
            - matchExpressions:
-             - key: region
+             - key: location
                operator: In
                values:
-               - us-east
+               - toronto
      containers:
      - name: busybox
        image: busybox
