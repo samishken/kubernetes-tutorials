@@ -154,8 +154,13 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    apiVersion: v1
    kind: Pod
    metadata:
-     name: no-toleration-pod
+     name: toleration-pod
    spec:
+     tolerations:
+     - key: "key"
+       operator: "Equal"
+       value: "database"
+       effect: "NoSchedule"
      containers:
      - name: busybox
        image: busybox
