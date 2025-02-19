@@ -122,6 +122,8 @@ FLUSH PRIVILEGES;
                       |   +-------------+    |
                       +----------------------+
 ```
+![My Diagram](k8s training - Python-MySQL.png)
+
 
 ---
 
