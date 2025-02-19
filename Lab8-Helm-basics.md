@@ -12,17 +12,6 @@ Linux/MacOS
 ```
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 ```
-Output
-
-```
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 11903  100 11903    0     0   179k      0 --:--:-- --:--:-- --:--:--  181k
-Downloading https://get.helm.sh/helm-v3.17.1-linux-amd64.tar.gz
-Verifying checksum... Done.
-Preparing to install helm into /usr/local/bin
-```
 
 MacOS ( Homebrew )
 ```
@@ -52,12 +41,6 @@ We will use the Bitnami NGINX chart available from the Bitnami repository.
    ```
    helm repo update
    ```
-   Output
-   
-   ```
-   Hang tight while we grab the latest from your chart repositories......Successfully got an update from the "bitnami" chart repository Update Complete. ⎈Happy Helming!⎈
-  ```
-
 ---
 
 **Step 2: Install the Pre-Made NGINX Chart**
