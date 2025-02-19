@@ -101,27 +101,6 @@ FLUSH PRIVILEGES;
 
 ### 3. Architecture Diagram
 
-```                           | 
-                              | Load Balancer
-                              |
-                              V 
-                      +----------------------+
-                      |  Public Cloud K8s    |
-                      |                      |
-                      |   +-------------+    |       Namespace: flask-app
-                      |   |             |    |      ----------------------
-                      |   |  Flask App  |----|-----> Deployment (ReplicaSet)
-                      |   |             |    |       ConfigMap (APP_ENV, DEBUG, MYSQL_DB, MYSQL_HOST)
-                      |   +-------------+    |       Secret (MYSQL_USER, MYSQL_PASSWORD)
-                      |          |           |
-                      |          | Service   |
-                      |          V           |
-                      |   +-------------+    |       Namespace: mysql
-                      |   | MySQL       |----|-----> StatefulSet (with PVC)
-                      |   | Database    |    |       ConfigMap (initdb.sql)
-                      |   +-------------+    |
-                      +----------------------+
-```
 ![Architecture Diagram](Python-MySQL-Project.png)
 
 
