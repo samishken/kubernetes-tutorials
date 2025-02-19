@@ -1,6 +1,7 @@
 
 # Kubernetes & Docker Assignment: Flask & MySQL Deployment
 
+
 ## Overview
 
 In this assignment, you are required to build a containerized application that consists of a Flask web application and a MySQL database. The two components will be deployed on a public cloud Kubernetes cluster in separate namespaces with proper configuration management using ConfigMaps and Secrets.
