@@ -141,7 +141,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    Choose a node name (e.g., `minikube`) and apply a taint:
 
    ```bash
-   kubectl taint nodes minikube key=database:NoSchedule
+   kubectl taint nodes quick-labs-0-aa0mx key=database:NoSchedule
    ```
 
    This taint prevents pods without a toleration for `key=database` from being scheduled on the node.
@@ -225,7 +225,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    Once testing is complete, remove the taint:
 
    ```bash
-   kubectl taint nodes minikube key=database:NoSchedule-
+   kubectl taint nodes quick-labs-0-aaalz key=database:NoSchedule-
    ```
 
 ### **Expected Outcome:**
@@ -246,7 +246,7 @@ Use node affinity and pod affinity/anti-affinity rules to control the placement 
    Create a YAML file `node-affinity.yaml` that schedules pods only on nodes with a specific label. First, label one of your nodes:
 
    ```bash
-   kubectl label nodes minikube region=us-east
+   kubectl label nodes quick-labs-0-aaapc region=us-east
    ```
 
    Now, create a pod that uses node affinity:
