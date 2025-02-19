@@ -141,7 +141,7 @@ Learn how to restrict pod scheduling using taints on nodes and allow specific po
    Choose a node name (e.g., `minikube`) and apply a taint:
 
    ```bash
-   kubectl taint nodes quick-labs-0-aa0mx key=database:NoSchedule
+   kubectl taint nodes quick-labs-0-aa0mx quick-labs-0-aaalz quick-labs-0-aaapc key=database:NoSchedule
    ```
 
    This taint prevents pods without a toleration for `key=database` from being scheduled on the node.
