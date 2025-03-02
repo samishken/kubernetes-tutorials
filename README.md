@@ -4,15 +4,10 @@ Welcome to the Kubernetes Tutorial Repository! This project is designed to help 
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
 - [Repository Structure](#repository-structure)
   - [Tutorials](#tutorials)
-  - [Interview Preparation](#interview-preparation)
-  - [Resources](#resources)
+  - [Interview Preparation](#interview-prep)
   - [Examples](#examples)
-- [How to Contribute](#how-to-contribute)
-- [License](#license)
-
 
 
 ### Prerequisites: 
