@@ -14,7 +14,7 @@ kubectl get po
 ```
 
 ```
-prod-ns   crashing-app-xxxxxxx                         1/1     CrashLoopBackOff   1661 (2m ago)   54m
+prod-ns   pod-crashing-dns-xxxxxxx                      1/1     CrashLoopBackOff   1661 (2m ago)   54m
 ```
 
 
