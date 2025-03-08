@@ -20,7 +20,7 @@ Before attending the bootcamp, install and configure the following:
 
 - **Docker Desktop**
 
-[Video Instruction](https://www.youtube.com/watch?v=Yc1iCVXVFCI)
+    [Video Instruction for both Windows & Mac](https://www.youtube.com/watch?v=Yc1iCVXVFCI)
 
 - **Minikube** (for local development):
   ```sh
