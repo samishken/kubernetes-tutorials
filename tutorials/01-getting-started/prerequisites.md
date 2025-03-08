@@ -13,6 +13,7 @@ To ensure a smooth learning experience, participants should have:
 ## **2. Software & Tools Setup**
 Before attending the bootcamp, install and configure the following:
 
+
 ### **Mandatory Tools:**
 ✅ **Kubernetes CLI (`kubectl`)** – For managing Kubernetes clusters. Install using:
 ```sh
@@ -32,6 +33,40 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
   chmod +x ./kind
   mv ./kind /usr/local/bin/kind
   ```
+  Validate the Setup
+
+```
+#kind create cluster
+Creating cluster "kind" ...
+ ✓ Ensuring node image (kindest/node:v1.32.2) 🖼
+ ✓ Preparing nodes 📦
+ ✓ Writing configuration 📜
+ ✓ Starting control-plane 🕹️
+ ✓ Installing CNI 🔌
+ ✓ Installing StorageClass 💾
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+```
+Ensure kubectl is working properly for kind cluster
+
+```
+kubectl get po -A
+NAMESPACE            NAME                                         READY   STATUS    RESTARTS   AGE
+kube-system          coredns-668d6bf9bc-ncsfn                     1/1     Running   0          2m30s
+kube-system          coredns-668d6bf9bc-z9c6f                     1/1     Running   0          2m30s
+kube-system          etcd-kind-control-plane                      1/1     Running   0          2m37s
+kube-system          kindnet-z7xs9                                1/1     Running   0          2m30s
+kube-system          kube-apiserver-kind-control-plane            1/1     Running   0          2m37s
+kube-system          kube-controller-manager-kind-control-plane   1/1     Running   0          2m37s
+kube-system          kube-proxy-6rg82                             1/1     Running   0          2m30s
+kube-system          kube-scheduler-kind-control-plane            1/1     Running   0          2m37s
+local-path-storage   local-path-provisioner-7dc846544d-ccs86      1/1     Running   0          2m30s
+```
+  
 - **Cloud Kubernetes Cluster** (AWS EKS, GKE, AKS, or DigitalOcean Kubernetes). If using a cloud provider, ensure you have an active account.
 
 ✅ **Docker** (For container creation and deployment):
