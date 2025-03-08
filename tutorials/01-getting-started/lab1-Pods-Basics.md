@@ -52,7 +52,31 @@ quick-labs-0-aaapc   Ready    <none>   11h   v1.32.1
 
 ### **Step 1: Create a Simple Pod**
 
-#### 1. Write a Pod YAML Manifest
+```
+kubectl run my-single-container-pod --image=nginx:latest --port=80 --restart=Never
+
+```
+
+Deploy a Multi Container Pod
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-multi-container-pod
+spec:
+  containers:
+    - name: container1
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+    - name: container2
+      image: busybox
+      command: ["sleep", "3600"]
+
+```
+
+#### Write a Pod YAML Manifest
 Create a file named `simple-pod.yaml`:
 ```yaml
 apiVersion: v1
