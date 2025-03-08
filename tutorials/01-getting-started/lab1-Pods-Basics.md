@@ -26,6 +26,10 @@ By the end of this lab, students will:
 kubectl run my-single-container-pod --image=nginx:latest --port=80 --restart=Never
 
 ```
+To Access the Ngnix container 
+```
+kubectl expose pod my-single-container-pod --type=NodePort --port=80 --target-port=80 --name=my-single-container-service
+```
 
 Deploy a Multi Container Pod
 
@@ -44,6 +48,11 @@ spec:
       image: busybox
       command: ["sleep", "3600"]
 
+```
+
+```
+kubectl logs multi-container-pod -c container1
+kubectl logs multi-container-pod -c container2
 ```
 
 #### Write a Pod YAML Manifest
