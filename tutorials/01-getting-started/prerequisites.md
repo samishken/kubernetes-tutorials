@@ -15,13 +15,13 @@ Before attending the bootcamp, install and configure the following:
 
 
 ### **Mandatory Tools:**
-✅ **Kubernetes CLI (`kubectl`)** – For managing Kubernetes clusters. Install using:
-```sh
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-```
 
 ✅ **A Kubernetes Cluster** (choose one):
+
+- **Docker Desktop**
+
+https://www.youtube.com/watch?v=Yc1iCVXVFCI
+
 - **Minikube** (for local development):
   ```sh
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -32,6 +32,41 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 ✅ **Docker** (For container creation and deployment):
 - Install via official Docker instructions: [Docker Installation](https://docs.docker.com/get-docker/)
+
+✅ **Kubernetes CLI (`kubectl`)** – For managing Kubernetes clusters. Install using:
+
+Installation Binaries = https://kubernetes.io/docs/tasks/tools/
+
+Export the kubeconfig file to environment variable
+
+Linux/MacOS
+
+```
+export KUBECONFIG=<PATH TO KUBECONFIG FILE>
+```
+
+In Powershell
+
+```
+$env:KUBECONFIG="<Path to your folder>\quick-labs-0-kubeconfig.yaml"
+```
+
+Ensure it is working
+
+Example on Multi Node Cloud environment
+```
+kubectl get no
+NAME                 STATUS   ROLES    AGE   VERSION
+quick-labs-0-aa0mx   Ready    <none>   21m   v1.32.1
+quick-labs-0-aaalz   Ready    <none>   11h   v1.32.1
+quick-labs-0-aaapc   Ready    <none>   11h   v1.32.1
+```
+Docker Desktop
+```
+kubectl get no
+NAME             STATUS   ROLES           AGE   VERSION
+docker-desktop   Ready    control-plane   10m   v1.31.4
+```
 
 ✅ **YAML Basics** – Kubernetes uses YAML files for configurations. Learn to read and write basic YAML files.
 
